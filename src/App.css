@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  /* background-color: rgb(248, 223, 190); */
 }
 
 .App-logo {
@@ -27,6 +28,11 @@
 .App-link {
   color: #61dafb;
 }
+
+/*.hour_component{
+  margin-bottom: 10px;
+  margin-top: 10px;
+}*/
 
 @keyframes App-logo-spin {
   from {
