@@ -29,7 +29,7 @@ export class Home extends Component {
   //this method just finalizes the city name given by the user and sends an api call to fetch the list of places
   finalUpdateCityName(event){
     // console.log(this.state.cityName);
-    const url="http://api.openweathermap.org/geo/1.0/direct?q="+this.state.cityName+"&limit=5&appid=75bc2a430b7eddd29511028df17b7fbb";
+    const url="https://api.openweathermap.org/geo/1.0/direct?q="+this.state.cityName+"&limit=5&appid=75bc2a430b7eddd29511028df17b7fbb";
     // console.log(url);
     fetch(url)
     .then(response=>response.json())
