@@ -7,18 +7,26 @@ import MainComponent from './MainComponent';
 export class Home extends Component {
   constructor(props){
     super(props);
+    //declaring the state variables
     this.state={
       cityName:'',
       data:null,
       error:null,
       geoLocationError:null
     };
+    //this method updates the cityname in the state variable given by the user
     this.updateCityName=this.updateCityName.bind(this);
+    //this method finally updates the name of the city variable given by the user
     this.finalUpdateCityName=this.finalUpdateCityName.bind(this);
+    //this method binds the weather data of the location
     this.setData=this.setData.bind(this);
+    //this method makes an api call to fetch the user requested weather data of the city or location
     this.setCityData=this.setCityData.bind(this);
+    //this method binds any network error occured during the fetching of an api call
     this.setError=this.setError.bind(this);
+    //this method makes an api call to get the location postion of the user input city or loaction
     this.setLocationData=this.setLocationData.bind(this);
+    //this method sets any geolocation error while fetching the current user loaction
     this.setGeoLocationError=this.setGeoLocationError.bind(this);
   }
   updateCityName(event){
@@ -47,7 +55,7 @@ export class Home extends Component {
     })
     .catch(this.setError);
     // console.log(this.state.data);
-    // event.preventDefault();
+    event.preventDefault();
   }
   setError(res){
     this.setState({
