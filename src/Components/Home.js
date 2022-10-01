@@ -30,6 +30,7 @@ export class Home extends Component {
     this.setGeoLocationError=this.setGeoLocationError.bind(this);
   }
   updateCityName(event){
+    //update the cityname given by the user
     this.setState({
       cityName:event.target.value
     });
@@ -39,9 +40,11 @@ export class Home extends Component {
     // console.log(this.state.cityName);
     const url="https://api.openweathermap.org/geo/1.0/direct?q="+this.state.cityName+"&limit=5&appid=75bc2a430b7eddd29511028df17b7fbb";
     // console.log(url);
+    //fetching the user defined city or location postion
     fetch(url)
     .then(response=>response.json())
     .then(res=>{
+      //if there is no location found this check comes in
       if(typeof(res[0])==='undefined'){
         this.setState({
           error:{
@@ -58,17 +61,20 @@ export class Home extends Component {
     event.preventDefault();
   }
   setError(res){
+    //setting the error in state
     this.setState({
       error:res
     });
   }
   setCityData(res){
+        //getting the data of position of user given location or city
         const lat=res[0].lat;
         const lon=res[0].lon;
         const urlWeatherData=`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=75bc2a430b7eddd29511028df17b7fbb&units=metric`;
         console.log("starting to fetch data");
         // console.log(lat,lon);
         // console.log(urlWeatherData);
+        //fetching the data through fetch api
         fetch(urlWeatherData)
         .then(response=>response.json())
         .then(this.setData)
@@ -76,17 +82,20 @@ export class Home extends Component {
         console.log("finished loading data");
   }
   setData(res){
+    //setting the data in state
     this.setState({
       data:res
     });
   }
   setLocationData(){
+    //to check if geolocation is available in the user's browser
     if('geolocation' in navigator){
       navigator.geolocation.getCurrentPosition(pos=>{
         const urlWeatherData=`https://api.openweathermap.org/data/2.5/forecast?lat=${pos.coords.latitude}&lon=${pos.coords.longitude}&appid=75bc2a430b7eddd29511028df17b7fbb&units=metric`;
         console.log("starting to fetch data");
         // console.log(pos.coords.latitude,pos.coords.longitude);
         // console.log(urlWeatherData);
+        //fetching data of user's current location
         fetch(urlWeatherData)
         .then(response=>response.json())
         .then(this.setData)
@@ -97,11 +106,13 @@ export class Home extends Component {
     }
   }
   setGeoLocationError(e){
+    //setting any geoloaction api error in the state
     this.setState({
       geoLocationError:e
     });
   }
   render() {
+    //the first render of the page
     if(this.state.data===null&&this.state.geoLocationError===null&&this.state.error===null){
       return (
         <div className="position-absolute top-50 start-50 translate-middle">
@@ -117,13 +128,16 @@ export class Home extends Component {
           </button>
         </div>
       )
-    }else if(this.state.data===null&&this.state.error!==null){
+    }
+    //when there is an error while fetching the data
+    else if(this.state.data===null&&this.state.error!==null){
       return(<h1>
                 There was an error when fetching the data from internet
                 <div>{this.state.error.message}</div>
             </h1>
             );
     }
+    //when there is a geolocation api error
     else if(this.state.data===null&&this.state.geoLocationError!==null){
       if(this.state.geoLocationError!==null){
         switch(this.state.geoLocationError.code){
@@ -157,6 +171,7 @@ export class Home extends Component {
         );
       }
     }
+    //when the waether data is fetched successfully
     else if(this.state.data!==null){
       const func=()=>{
         const consDate=new Date();
@@ -183,6 +198,7 @@ export class Home extends Component {
         </div>
       );
     }
+    //while fetching the weather data it loads a spinner
     else{
       return(
       <div className="spinner-border" role="status">
