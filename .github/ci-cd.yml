@@ -4,5 +4,7 @@ jobs:
   build-test:
     runs-on: ubuntu-latest
     steps:
+    - run: cd ./WeatherAppReact
+    - run: dir
     - run: npm i
     - run: npm run build
