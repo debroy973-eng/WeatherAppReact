@@ -1,6 +1,3 @@
-This is a simple react app to know your weather on the go
-Link:https://debroy973-eng.github.io/WeatherAppReact
-
 
 # Getting Started with Create React App
 
