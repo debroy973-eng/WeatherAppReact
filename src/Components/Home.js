@@ -115,17 +115,23 @@ export class Home extends Component {
     //the first render of the page
     if(this.state.data===null&&this.state.geoLocationError===null&&this.state.error===null){
       return (
-        <div className="position-absolute top-50 start-50 translate-middle">
-          <p style={{'fontSize':'100px'}}>WeatherPedia</p>
-          <input type="text" placeholder='Enter the name of city' id='cityName' onChange={this.updateCityName} className="w-100 p-3"/>
-          <div>
-            <button type="button" className="w-25 p-3 btn btn-primary" style={{'marginTop':'10px'}} onClick={this.finalUpdateCityName}>Submit</button>
+        <div className="container">
+          <div className="row">
+            <div className="position-absolute top-50 start-50 translate-middle col-lg-3">
+              <p className='col-lg-12 col-xl-12 col-sm-6 fs-1'>WeatherPedia</p>
+              <input type="text" placeholder='Enter the name of city' id='cityName' onChange={this.updateCityName} className=""/>
+              <div>
+                <button type="button" className="mt-2 mb-2 text-wrap btn btn-primary col-12 col-lg-6" onClick={this.finalUpdateCityName}>Submit</button>
+              </div>
+              <div className="postion-relative">
+                <button type="button" className="btn btn-link position-absolute top-100 start-0 text-wrap" onClick={this.setLocationData}>
+                  <span className="material-symbols-outlined col-lg-12 col-sm-6">
+                    my_location <div className="fs-6">Use my current location</div>
+                  </span>
+                </button>
+              </div>
+            </div>
           </div>
-          <button style={{'backgroundColor':'inherit','border':'none','marginTop':'5px'}} onClick={this.setLocationData}>
-            <span className="material-symbols-outlined" style={{'height':'50px','width':'50px'}}>
-              my_location <h6 style={{'display':'inline'}}>Use my current location</h6>
-            </span>
-          </button>
         </div>
       )
     }
@@ -136,6 +142,7 @@ export class Home extends Component {
                 <div>{this.state.error.message}</div>
             </h1>
             );
+            
     }
     //when there is a geolocation api error
     else if(this.state.data===null&&this.state.geoLocationError!==null){
