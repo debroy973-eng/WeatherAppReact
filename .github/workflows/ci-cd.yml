@@ -1,7 +1,0 @@
-name: weather-app
-on: push
-jobs: 
-  build-test:
-    runs-on: ubuntu-latest
-    steps:
-    - run: npm run build
