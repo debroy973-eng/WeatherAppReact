@@ -3,5 +3,6 @@ on: push
 jobs: 
   build-test:
     runs-on: ubuntu-latest
-    run: npm i
-    run: npm run build
+    steps:
+    - run: npm i
+    - run: npm run build
