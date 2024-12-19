@@ -118,7 +118,7 @@ export class Home extends Component {
         <div className="container">
           <div className="row">
             <div className="position-absolute top-50 start-50 translate-middle col-lg-3">
-              <p className='col-lg-12 col-xl-12 col-sm-6 fs-1'>WeatherPedia</p>
+              <p className='col-lg-12 col-xl-12 col-sm-6 h1'>WeatherPedia</p>
               <input type="text" placeholder='Enter the name of city' id='cityName' onChange={this.updateCityName} className=""/>
               <div>
                 <button type="button" className="mt-2 mb-2 text-wrap btn btn-primary col-12 col-lg-6" onClick={this.finalUpdateCityName}>Submit</button>
