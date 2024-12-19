@@ -5,7 +5,7 @@ import MainComponent from './MainComponent';
 // import {} from './Response.json';
 
 export class Home extends Component {
-  let api_key='75bc2a430b7eddd29511028df17b7fbb';
+ // let api_key='75bc2a430b7eddd29511028df17b7fbb';
   constructor(props){
     super(props);
     //declaring the state variables
