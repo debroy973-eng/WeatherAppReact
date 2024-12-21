@@ -5,7 +5,6 @@ import MainComponent from './MainComponent';
 // import {} from './Response.json';
 
 export class Home extends Component {
- // let api_key='75bc2a430b7eddd29511028df17b7fbb';
   constructor(props){
     super(props);
     //declaring the state variables
@@ -39,7 +38,7 @@ export class Home extends Component {
   //this method just finalizes the city name given by the user and sends an api call to fetch the list of places
   finalUpdateCityName(event){
     // console.log(this.state.cityName);
-    const url="https://api.openweathermap.org/geo/1.0/direct?q="+this.state.cityName+"&limit=5&appid={api_key}";
+    const url="https://api.openweathermap.org/geo/1.0/direct?q="+this.state.cityName+"&limit=5&appid=75bc2a430b7eddd29511028df17b7fbb";
     // console.log(url);
     //fetching the user defined city or location postion
     fetch(url)
@@ -71,7 +70,7 @@ export class Home extends Component {
         //getting the data of position of user given location or city
         const lat=res[0].lat;
         const lon=res[0].lon;
-        const urlWeatherData=`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid={api_key}&units=metric`;
+        const urlWeatherData=`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=75bc2a430b7eddd29511028df17b7fbb&units=metric`;
         console.log("starting to fetch data");
         // console.log(lat,lon);
         // console.log(urlWeatherData);
@@ -92,7 +91,7 @@ export class Home extends Component {
     //to check if geolocation is available in the user's browser
     if('geolocation' in navigator){
       navigator.geolocation.getCurrentPosition(pos=>{
-        const urlWeatherData=`https://api.openweathermap.org/data/2.5/forecast?lat=${pos.coords.latitude}&lon=${pos.coords.longitude}&appid={api_key}&units=metric`;
+        const urlWeatherData=`https://api.openweathermap.org/data/2.5/forecast?lat=${pos.coords.latitude}&lon=${pos.coords.longitude}&appid=75bc2a430b7eddd29511028df17b7fbb&units=metric`;
         console.log("starting to fetch data");
         // console.log(pos.coords.latitude,pos.coords.longitude);
         // console.log(urlWeatherData);
