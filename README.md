@@ -2,6 +2,8 @@
 # Getting Started with Create React App
 This project is hosted using guthub pages here: https://debroy973-eng.github.io/WeatherAppReact/
 
+https://roadmap.sh/projects/weather-app
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
